@@ -55,7 +55,6 @@ const UploadDropzone = ({ isSubscribed }: { isSubscribed: boolean }) => {
 
         // handle file uploading
         const res = await startUpload(acceptedFile);
-        console.log(res);
         if (!res) {
           return toast({
             title: "Something went wrong",

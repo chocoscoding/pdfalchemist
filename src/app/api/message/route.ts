@@ -1,13 +1,14 @@
 import { db } from "@/db";
 import { openai } from "@/lib/openai";
-import { getPineconeClient } from "@/lib/pinecone";
 import { SendMessageValidator } from "@/lib/validators/SendMessageValidator";
 import { getKindeServerSession } from "@kinde-oss/kinde-auth-nextjs/server";
-import { OpenAIEmbeddings } from "langchain/embeddings/openai";
-import { PineconeStore } from "langchain/vectorstores/pinecone";
 import { NextRequest } from "next/server";
 
 import { OpenAIStream, StreamingTextResponse } from "ai";
+
+import { Pinecone } from "@pinecone-database/pinecone";
+import { OpenAIEmbeddings } from "@langchain/openai";
+import { PineconeStore } from "@langchain/pinecone";
 
 export const POST = async (req: NextRequest) => {
   // endpoint for asking a question to a pdf file
@@ -42,14 +43,16 @@ export const POST = async (req: NextRequest) => {
   });
 
   // 1: vectorize message
+  const pinecone = new Pinecone();
+
   const embeddings = new OpenAIEmbeddings({
     openAIApiKey: process.env.OPENAI_API_KEY,
   });
 
-  const pinecone = await getPineconeClient();
-  const pineconeIndex = pinecone.Index("Pdfalchemist");
+  const pineconeIndex = pinecone.Index(process.env.PINECONE_INDEX!);
 
   const vectorStore = await PineconeStore.fromExistingIndex(embeddings, {
+    //@ts-ignore
     pineconeIndex,
     namespace: file.id,
   });
@@ -70,7 +73,6 @@ export const POST = async (req: NextRequest) => {
     role: msg.isUserMessage ? ("user" as const) : ("assistant" as const),
     content: msg.text,
   }));
-
   const response = await openai.chat.completions.create({
     model: "gpt-3.5-turbo",
     temperature: 0,
@@ -78,11 +80,11 @@ export const POST = async (req: NextRequest) => {
     messages: [
       {
         role: "system",
-        content: "Use the following pieces of context (or previous conversaton if needed) to answer the users question in markdown format.",
+        content: "A file has been extracted and all of its information are in context, Use the following pieces of context (or previous conversaton if needed) to answer the users question in markdown format.",
       },
       {
         role: "user",
-        content: `Use the following pieces of context (or previous conversaton if needed) to answer the users question in markdown format. \nIf you don't know the answer, just say that you don't know, don't try to make up an answer.
+        content: `A file has been extracted and all of its information are in context, Use the following pieces of context (or previous conversaton if needed) to answer the users question in markdown format. \nIf you don't know the answer, just say that you don't know, don't try to make up an answer.
         
   \n----------------\n
   
@@ -101,7 +103,7 @@ export const POST = async (req: NextRequest) => {
       },
     ],
   });
-
+//@ts-ignore
   const stream = OpenAIStream(response, {
     async onCompletion(completion) {
       await db.message.create({
