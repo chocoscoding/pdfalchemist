@@ -1,4 +1,4 @@
-![pdfalchemist_thumbnail](https://github.com/Kliton/yt_pageform/assets/10452377/610b5935-5afd-4126-9dfd-a7064e18a0db)
+![pdfalchemist_thumbnail](https://res.cloudinary.com/chocoscoding/image/upload/v1709832285/Screenshot_2024-03-07_at_18.21.08_qgledh.png)
 
 <div align="center">
 
