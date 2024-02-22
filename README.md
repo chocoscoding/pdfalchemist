@@ -1,10 +1,43 @@
-# Pdfalchemist - A Modern Fullstack SaaS-Platform
+![pdfalchemist_thumbnail](https://github.com/Kliton/yt_pageform/assets/10452377/610b5935-5afd-4126-9dfd-a7064e18a0db)
 
-Built with the Next.js 13.5 App Router, tRPC, TypeScript, Prisma & Tailwind
+<div align="center">
 
-![Project Image](https://github.com/joschan21/Pdfalchemist/blob/master/public/thumbnail.png)
+  <div>
+    <img src="https://img.shields.io/badge/-Next_JS-black?style=for-the-badge&logoColor=white&logo=nextdotjs&color=000000" alt="nextdotjs" />
+    <img src="https://img.shields.io/badge/-TypeScript-black?style=for-the-badge&logoColor=white&logo=typescript&color=3178C6" alt="typescript" />
+    <img src="https://img.shields.io/badge/with%20a%20logo-black?style=for-the-badge&logo=shadcnui" alt="shadcn/ui" />
+    <img src="https://img.shields.io/badge/-MongoDb-black?style=for-the-badge&logoColor=white&logo=mongodb&color=**336791**" alt="postgresql" />
+    <img src="https://img.shields.io/badge/-Prisma-black?style=for-the-badge&logoColor=white&logo=prisma&color=2D3748" alt="prisma" />
+    <img src="https://img.shields.io/badge/-vercel-black?style=for-the-badge&logo=vercel&color=000000" alt="vercel" />
+    <img src="https://img.shields.io/badge/-Tailwind_CSS-black?style=for-the-badge&logoColor=white&logo=tailwindcss&color=06B6D4" alt="tailwindcss" />
+  </div>
 
-## Features
+  <h3 align="center">pdfalchemist - An Unique PDF processing and viewing tool</h3>
+</div>
+
+## 📋 <a name="table">Table of Contents</a>
+
+1. 🤖 [About](#about)
+2. ⚙️ [Tech Stack](#tech-stack)
+3. 🔋 [Features](#features)
+4. 🤸 [Quick Start](#quick-start)
+
+## <a name="about">🧐 About</a>
+
+pdfalchemist is a complete PDF processing and viewing tool, allowing users to seamlessly view, process, and analyze PDF documents. With a sleek and modern UI, intuitive drag-and-drop functionality, and powerful features, pdfalchemist simplifies PDF management for users.
+
+Enjoy here 👉 [pdfalchemist.vercel.app](https://pdfalchemist.vercel.app)
+
+## <a name="tech-stack">⚙️ Tech Stack</a>
+
+- Next.js
+- TypeScript
+- PostgreSQL
+- Prisma
+- Tailwind CSS
+- shadcn
+
+## <a name="features">🔋 Features</a>
 
 - 🛠️ Complete SaaS Built From Scratch
 - 💻 Beautiful Landing Page & Pricing Page Included
@@ -22,22 +55,3 @@ Built with the Next.js 13.5 App Router, tRPC, TypeScript, Prisma & Tailwind
 - 🌲 Pinecone as our Vector Storage
 - 📊 Prisma as our ORM
 - 🔤 100% written in TypeScript
-- 🎁 ...much more
-
-## Getting started
-
-To get started with this project, run
-
-```bash
-  git clone https://github.com/joschan21/Pdfalchemist.git
-```
-
-and copy the .env.example variables into a separate .env file, fill them out & and that's all you need to get started!
-
-## Acknowledgements
-
-- [Kinde Auth](https://link.joshtriedcoding.com/kinde) for making this project possible
-
-## License
-
-[MIT](https://choosealicense.com/licenses/mit/)
