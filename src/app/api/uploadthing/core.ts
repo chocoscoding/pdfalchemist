@@ -13,7 +13,6 @@ import { Pinecone } from "@pinecone-database/pinecone";
 import { OpenAIEmbeddings } from "@langchain/openai";
 import { PineconeStore } from "@langchain/pinecone";
 
-
 const f = createUploadthing();
 
 const middleware = async () => {
