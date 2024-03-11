@@ -21,13 +21,19 @@ const UploadDropzone = ({ isSubscribed }: { isSubscribed: boolean }) => {
 
   const { startUpload } = useUploadThing(isSubscribed ? "proPlanUploader" : "freePlanUploader");
 
-  const { mutate: startPolling } = trpc.getFile.useMutation({
+  const {
+    mutate: startPolling,
+    error,
+    failureReason,
+  } = trpc.getFile.useMutation({
     onSuccess: (file) => {
       router.push(`/dashboard/${file.id}`);
     },
     retry: true,
     retryDelay: 500,
   });
+  console.log(error);
+  console.log(failureReason);
 
   const startSimulatedProgress = () => {
     setUploadProgress(0);
