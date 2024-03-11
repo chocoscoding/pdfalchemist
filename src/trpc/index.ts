@@ -164,7 +164,7 @@ export const appRouter = router({
       },
     });
 
-    if (!file) throw new TRPCError({ code: "NOT_FOUND", cause: ctx, message: `${input}` });
+    if (!file) throw new TRPCError({ code: "NOT_FOUND", cause: file, message: `${input}` });
 
     return file;
   }),
