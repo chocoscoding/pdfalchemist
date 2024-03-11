@@ -77,7 +77,7 @@ const UploadDropzone = ({ isSubscribed }: { isSubscribed: boolean }) => {
 
         clearInterval(progressInterval);
         setUploadProgress(100);
-
+        console.log(key);
         startPolling({ key });
       }}>
       {({ getRootProps, getInputProps, acceptedFiles }) => (
