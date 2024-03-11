@@ -33,9 +33,9 @@ const UploadDropzone = ({ isSubscribed }: { isSubscribed: boolean }) => {
     retryDelay: 500,
   });
   //@ts-ignore
-  console.log(JSON.parse(error));
+  console.log(JSON.parse(JSON.stringify(error)));
   //@ts-ignore
-  console.log(JSON.parse(failureReason));
+  console.log(JSON.parse(JSON.stringify(failureReason)));
 
   const startSimulatedProgress = () => {
     setUploadProgress(0);
